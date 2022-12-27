@@ -2,7 +2,7 @@
   "name": "bx-app",
   "version": "0.1.0",
   "private": true,
-  "proxy":"http://127.0.0.1:3000",
+  "proxy": "http://127.0.0.1:3000",
   "dependencies": {
     "@material-ui/core": "^4.2.1",
     "axios": "^1.2.1",
@@ -14,9 +14,9 @@
     "react-dom": "^16.8.6",
     "react-list": "^0.8.11",
     "react-native-vector-icons": "6.6.0",
-    "react-native-web": "0.11.7",
+    "react-native-web": "^0.18.10",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1",
+    "react-scripts": "^5.0.1",
     "styled-components": "^4.3.2"
   },
   "scripts": {

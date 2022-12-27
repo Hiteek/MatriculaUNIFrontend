@@ -32,14 +32,30 @@ const Inicio = () => {
 
   useEffect(()=>{
     const loadCourses = async () => {
-      const respuesta = await fetch('/api/courses');
+      const respuesta = await fetch('/api/courses/');
       const datos = await respuesta.json();
       setCourses(datos);
     };
     loadCourses();
     
   }, []);
-
+  console.log(courses)
+  const list = courses.map(course => (
+    <li>
+      <h3>{course.code}{'\t'}{course._id}</h3>
+    </li>
+  ))
+  let a = [
+    { name: 'Curso 1', code: 'CM32', cred: 3 },
+    { name: 'Curso 2', code: 'CM33', cred: 1 },
+    { name: 'Curso 3', code: 'CM35', cred: 4 }
+  ];
+  console.log(a)
+  let filteredCourses = a.filter(course => course.code === 'CM32');
+  function handleButtonClick(event) {
+    // Lógica del manejador de eventos aquí
+  }
+  const items = [1, 2, 3];
   return (
     <Container>
       <RectStackStackStackStack>
@@ -56,9 +72,7 @@ const Inicio = () => {
             </RectStack>
             <Rect4Stack>
               <Rect4>
-                
                 <Image3 src={foto}></Image3>
-
                 <JuanCamarena>{student.name}</JuanCamarena>
               </Rect4>
               <Link to="/Inicio">
@@ -77,14 +91,70 @@ const Inicio = () => {
                 </Button2>
               </Link>
             </Rect4Stack>
-            <Matricula12>        <p>{courses.map(eachCourse =>{
-                return(
-                  <h1>{eachCourse.code}</h1>
-                )
-              })}</p> </Matricula12>
+            <Matricula12>    
+            
+             </Matricula12>
           </RectStackStack>
           <PanelDeNavegacion>Cursos Disponibles</PanelDeNavegacion>
+          <Codigo>Código</Codigo>
+          <Nombre>Nombre</Nombre>
+          <Creditos>Creditos</Creditos>       <>
+        {a.map((item, index) => (
+          <>
+            <svg
+              viewBox="0 0 44.61 40.97"
+              style={{
+                top: 290 + (index * 50), // Aumenta la posición en 50 px en cada iteración
+                left: 400,
+                width: 45,
+                height: 41,
+                position: "absolute"
+              }}
+            >
+              <ellipse
+                stroke="rgba(230, 230, 230,1)"
+                strokeWidth={0}
+                fill="rgba(14,241,100,1)"
+                cx={22}
+                cy={20}
+                rx={22}
+                ry={20}
+              ></ellipse>
+            </svg>
+            <Cc3M2Stack
+              style={{
+                top: 290 + (index * 50) // Ajusta la posición al mismo valor que el elipse
+              }}
+            >
+              <Cc3M2>{item.code}</Cc3M2>
+            </Cc3M2Stack>
+            <Cc3M22
+              style={{
+                top: 290 + (index * 50) // Ajusta la posición al mismo valor que el elipse
+              }}
+            >
+              {item.name}
+            </Cc3M22>
+            <Cc5
+              style={{
+                top: 290 + (index * 50) // Ajusta la posición al mismo valor que el elipse
+              }}
+            >
+              {item.cred}
+            </Cc5>
+            <ButtonM style={{
+                top: 290 + (index * 50) // Ajusta la posición al mismo valor que el elipse
+              }}>
+              <ButtonOverlay></ButtonOverlay>
+            </ButtonM>
+          </>
+        ))}
+      </>
           
+        <CreditosTotales>Creditos totales:</CreditosTotales>
+        <CreditosUsados>Creditos usados:</CreditosUsados>
+        <Creditos1>22</Creditos1>
+        <Creditos2>10</Creditos2>
         </RectStackStackStack>
         <Link to="/CursosDisponibles">
           
@@ -101,6 +171,7 @@ const Inicio = () => {
             </ButtonOverlay>
           </Button4>
         </Link>
+        
         <Button5Stack>
           <Link to="/Configuracion">
             <Button5>
@@ -109,6 +180,7 @@ const Inicio = () => {
               </ButtonOverlay>
             </Button5>
           </Link>
+          
           <Link to="/Inicio">
             <Button6>
               <ButtonOverlay>
@@ -116,7 +188,11 @@ const Inicio = () => {
               </ButtonOverlay>
             </Button6>
           </Link>
+          <Rect19>
+          <Matricular>Matricular</Matricular>
+        </Rect19>
         </Button5Stack>
+        
       </RectStackStackStackStack>
       <Rect16>
         <Version101>Version 1.0.1</Version101>
@@ -124,6 +200,265 @@ const Inicio = () => {
     </Container>
   );
 }
+
+const CreditosTotales = styled.span`
+  font-family: Roboto;
+  top: 296px;
+  left: 1432px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 700;
+  color: #121212;
+  height: 29px;
+  width: 193px;
+  font-size: 25px;
+`;
+
+const CreditosUsados = styled.span`
+  font-family: Roboto;
+  top: 356px;
+  left: 1432px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 700;
+  color: #121212;
+  height: 29px;
+  width: 193px;
+  font-size: 25px;
+`;
+
+const Creditos1 = styled.span`
+  font-family: Roboto;
+  top: 295px;
+  left: 1646px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 23px;
+  width: 31px;
+  font-size: 25px;
+`;
+
+const Creditos2 = styled.span`
+  font-family: Roboto;
+  top: 359px;
+  left: 1646px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 23px;
+  width: 31px;
+  font-size: 25px;
+`;
+const Rect19 = styled.div`
+  width: 203px;
+  height: 58px;
+  background-color: rgba(14,225,229,1);
+  flex-direction: column;
+  display: flex;
+  margin-left: 1500px;
+  margin-top: 50px;
+`;
+
+const Matricular = styled.span`
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  font-size: 35px;
+  margin-top: 8px;
+  margin-left: 23px;
+`;
+const Codigo = styled.span`
+  font-family: Roboto;
+  top: 235px;
+  left: 482px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 29px;
+  width: 91px;
+  font-size: 25px;
+`;
+
+const Nombre = styled.span`
+  font-family: Roboto;
+  top: 235px;
+  left: 669px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 29px;
+  width: 91px;
+  font-size: 25px;
+`;
+
+const Creditos = styled.span`
+  font-family: Roboto;
+  top: 235px;
+  left: 1067px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 29px;
+  width: 99px;
+  font-size: 25px;
+`;
+
+const Cc3M22 = styled.span`
+  font-family: Roboto;
+  top: 296px;
+  left: 663px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 29px;
+  width: 322px;
+  font-size: 25px;
+`;
+
+const Cc5 = styled.span`
+  font-family: Roboto;
+  top: 292px;
+  left: 1100px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 29px;
+  width: 34px;
+  font-size: 25px;
+`;
+
+const ButtonM = styled.div`
+  top: 296px;
+  left: 1242px;
+  width: 47px;
+  height: 29px;
+  position: absolute;
+  background-color: rgba(80,227,194,1);
+  border: none;
+`;
+
+const Cc9 = styled.span`
+  font-family: Roboto;
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 29px;
+  width: 94px;
+  font-size: 25px;
+`;
+
+const Cc8Stack = styled.div`
+  top: 356px;
+  left: 480px;
+  width: 94px;
+  height: 29px;
+  position: absolute;
+`;
+
+const Rect18 = styled.div`
+  top: 356px;
+  left: 1242px;
+  width: 47px;
+  height: 29px;
+  position: absolute;
+  background-color: rgba(227,191,80,1);
+`;
+
+const Cc6 = styled.span`
+  font-family: Roboto;
+  top: 352px;
+  left: 1100px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 29px;
+  width: 34px;
+  font-size: 25px;
+`;
+
+const Cc7 = styled.span`
+  font-family: Roboto;
+  top: 356px;
+  left: 663px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 29px;
+  width: 322px;
+  font-size: 25px;
+`;
+
+const Cc8 = styled.span`
+  font-family: Roboto;
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 29px;
+  width: 94px;
+  font-size: 25px;
+`;
+const Cc4 = styled.span`
+  font-family: Roboto;
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 29px;
+  width: 94px;
+  font-size: 25px;
+`;
+
+const Cc3M2Stack = styled.div`
+  top: 296px;
+  left: 480px;
+  width: 94px;
+  height: 29px;
+  position: absolute;
+`;
+const Cc3M2 = styled.span`
+  font-family: Roboto;
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 29px;
+  width: 94px;
+  font-size: 25px;
+`;
+const ButtonX = styled.div`
+  top: 50px;
+  left: 10px;
+  width: 100x;
+  height: 10px;
+  background-color: #222d32;
+  border-width: 1px;
+  border-color: #000000;
+  shadow-radius: 0px;
+  display: flex;
+  box-shadow: 3px 3px 0px  0.1px rgba(0,0,0,1) ;
+`;
+
 const Container = styled.div`
   display: flex;
   background-color: #ecf0f5;
@@ -162,7 +497,7 @@ const Image2 = styled.img`
 const Image4 = styled.img`
   position: absolute;
   top: 1px;
-  left: 1734px;
+  left: 1734px; 
   height: 94px;
   width: 108px;
   object-fit: contain;
@@ -350,16 +685,16 @@ const Button7 = styled.div`
 `;
 
 const Matricula12 = styled.span`
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 400;
-  color: rgba(249,246,246,1);
-  height: 81px;
-  width: 228px;
-  font-size: 50px;
-  text-align: center;
-  margin-top: 68px;
-  margin-left: 99px;
+font-family: Roboto;
+top: 200px;
+left: 357px;
+position: absolute;
+font-style: normal;
+font-weight: 700;
+color: rgba(49,47,47,1);
+height: 81px;
+width: 688px;
+font-size: 20px;
 `;
 
 const Button8 = styled.div`

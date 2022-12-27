@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 import CursosDisponiblesVoice from "../voice_interface/CursosDisponiblesVoice";
 
-const Inicio = () => {
+const CursoDisponibles = () => {
   CursosDisponiblesVoice();
   const [student,setStudent] = useState([])
 
@@ -149,16 +149,13 @@ const Inicio = () => {
             <ButtonM style={{
                 top: 290 + (index * 50) // Ajusta la posición al mismo valor que el elipse
               }}>
-              <ButtonOverlay></ButtonOverlay>
+              <ButtonOverlay>+info</ButtonOverlay>
             </ButtonM>
           </>
         ))}
       </>
           
-        <CreditosTotales>Creditos totales:</CreditosTotales>
-        <CreditosUsados>Creditos usados:</CreditosUsados>
-        <Creditos1>22</Creditos1>
-        <Creditos2>10</Creditos2>
+
         </RectStackStackStack>
         <Link to="/CursosDisponibles">
           
@@ -192,9 +189,6 @@ const Inicio = () => {
               </ButtonOverlay>
             </Button6>
           </Link>
-          <Rect19>
-          <Matricular>Matricular</Matricular>
-        </Rect19>
         </Button5Stack>
         
       </RectStackStackStackStack>
@@ -950,4 +944,4 @@ const Version101 = styled.span`
   margin-left: 1694px;
 `;
 
-export default Inicio;
+export default CursoDisponibles;

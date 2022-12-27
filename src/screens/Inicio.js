@@ -3,7 +3,10 @@ import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 import axios from 'axios';
 
+import InicioVoice from "../voice_interface/InicioVoice";
+
 const Inicio = () => {
+  InicioVoice();
   const [student,setStudent] = useState([])
 
   useEffect(()=>{
@@ -50,6 +53,8 @@ const Inicio = () => {
       break;
     }
   }
+
+
   return (
     <Container>
       <RectStackStackStackStack>

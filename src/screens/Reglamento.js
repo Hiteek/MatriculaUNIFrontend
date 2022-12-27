@@ -2,7 +2,11 @@ import React, { Component } from "react";
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 
+import ReglamentoVoice from "../voice_interface/ReglamentoVoice";
+
 function Reglamento(props) {
+  ReglamentoVoice();
+
   return (
     <Container>
       <RectStackStack>

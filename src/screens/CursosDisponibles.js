@@ -2,8 +2,10 @@ import React, { useState, useEffect, Component } from "react";
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 import axios from 'axios';
+import CursosDisponiblesVoice from "../voice_interface/CursosDisponiblesVoice";
 
 const Inicio = () => {
+  CursosDisponiblesVoice();
   const [student,setStudent] = useState([])
 
   useEffect(()=>{
@@ -56,6 +58,8 @@ const Inicio = () => {
     // Lógica del manejador de eventos aquí
   }
   const items = [1, 2, 3];
+
+
   return (
     <Container>
       <RectStackStackStackStack>

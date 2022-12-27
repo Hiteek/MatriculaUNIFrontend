@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 
+import ConfiguracionVoice from "../voice_interface/ConfiguracionVoice";
+
 function Configuracion(props) {
+  ConfiguracionVoice();
   return (
     <Container>
       <RectStackStack>

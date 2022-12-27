@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 
+import MatriculaVoice from "../voice_interface/MatriculaVoice";
+
 function Matricula(props) {
+  MatriculaVoice();
   return (
     <Container>
       <RectStackStack>

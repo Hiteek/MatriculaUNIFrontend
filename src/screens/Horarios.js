@@ -2,83 +2,135 @@ import React, { useState, useEffect, Component } from "react";
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 import axios from 'axios';
-
+import CursosDisponiblesVoice from "../voice_interface/CursosDisponiblesVoice";
 
 const Horarios = () => {
-  const [student,setStudent] = useState([])
+    const [student,setStudent] = useState([])
 
-  useEffect(()=>{
-    const loadName = async () => {
-      const respuesta = await fetch('/api/students/20171342H');
-      const datos = await respuesta.json();
-      setStudent(datos);
-    };
-    loadName();
+    useEffect(()=>{
+      const loadName = async () => {
+        const respuesta = await fetch('/api/students/20171342H');
+        const datos = await respuesta.json();
+        setStudent(datos);
+      };
+      loadName();
+      
+    }, []);
     
-  }, []);
-  
-  const [foto,setFoto] = useState([])
-  
-  useEffect(()=>{
-    let a = student ? student.code : '';
-    const pedirFoto = async () => {
-      const respuesta = await fetch('/api/students/'+a+'/image');
-      const datos = await respuesta;
-      setFoto(datos.url);
-    };
-    if (a) {
-      // llamar a la función solo si b tiene un valor válido
-      pedirFoto();
-    }
-  },[student]);
-
-  const [courses,setCourses] = useState([])
-
-  useEffect(()=>{
-    let b = student ? student.code : '';
-    const loadCourses = async () => {
-      const respuesta = await fetch('/api/students/'+b+'/courses');
-      const datos = await respuesta.json();
-      setCourses(datos);
-    };
-    if (b) {
-      // llamar a la función solo si b tiene un valor válido
-      loadCourses();
-    }
+    const [foto,setFoto] = useState([])
     
-  }, [student,foto]);
-
-  const [buttonColors, setButtonColors] = useState(['red','red','red','red','red']);
-
-  const [enroll, setEnroll] = useState([]);
-  const [credused,setCredused] = useState(0);
-  function Enrollment(index) {
-    if (enroll.includes(courses[index].code)) {
-      setEnroll(enroll.filter(c => c !=courses[index].code));
-      setCredused(credused-courses[index].credits)
-    }
-    else if (!enroll.includes(courses[index].code)) {
-      setEnroll([...enroll, courses[index].code]);
-      setCredused(credused+courses[index].credits)
-    }
-    const buttonColor = buttonColors[index];
-    setButtonColors([
-      ...buttonColors.slice(0, index), // toma todos los colores de los botones hasta el índice actual
-      buttonColor === 'red' ? 'green' : 'red', // cambia el color del botón al opuesto
-      ...buttonColors.slice(index + 1) // toma todos los colores de los botones desde el índice siguiente
-    ]);
-   
-  }
+    useEffect(()=>{
+      let a = student ? student.code : '';
+      const pedirFoto = async () => {
+        const respuesta = await fetch('/api/students/'+a+'/image');
+        const datos = await respuesta;
+        setFoto(datos.url);
+      };
+      if (a) {
+        // llamar a la función solo si b tiene un valor válido
+        pedirFoto();
+      }
+    },[student]);
   
-  function handleSubmit() {
-    fetch('/api/students/'+student.code+'/enrolled', {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({"enrolled":enroll}),
-    });
-  }
+    const [courses,setCourses] = useState([])
+  
+    useEffect(()=>{
+      let b = student ? student.code : '';
+      const loadCourses = async () => {
+        const respuesta = await fetch('/api/students/'+b+'/courses');
+        const datos = await respuesta.json();
+        setCourses(datos);
+      };
+      if (b) {
+        // llamar a la función solo si b tiene un valor válido
+        loadCourses();
+      }
+      
+    }, [student,foto]);
+  let a = [
+    { name: 'Curso 1', code: 'CM32', cred: 3 },
+    { name: 'Curso 2', code: 'CM33', cred: 1 },
+    { name: 'Curso 3', code: 'CM35', cred: 4 }
+  ];
+  console.log(a)
+  const [schedule,setSchedule] = useState([])
+
+  useEffect(()=>{
+      let b = student ? student.code : '';
+      const loadSchedule = async () => {
+        const respuesta = await fetch('/api/students/'+b+'/schedule');
+        const datos = await respuesta.json();
+        setSchedule(datos);
+      };
+      if (b) {
+        // llamar a la función solo si b tiene un valor válido
+        loadSchedule();
+      }
+      
+    }, [student]);
+    let prueba =  [
+        {
+          "_id": "63a108228978ec1ec4b4cf22",
+          "__v": 0,
+          "code": "CC211",
+          "semester": 6,
+          "title": "Programacion Orientada a Objetos",
+          "section": "A",
+          "start": [
+            8,
+            10
+          ],
+          "days": [
+            "Lunes",
+            "Martes"
+          ],
+          "finish": [
+            10,
+            12
+          ],
+          "teacher": "Ciro Nunez",
+          "credits": 4
+        },
+        {
+          "_id": "63ab5e0fadd1bce489587b2e",
+          "title": "Ética y Filosofía Política",
+          "code": "BEF01",
+          "semester": 6,
+          "credits": 2,
+          "section": "A",
+          "days": [
+            "Viernes"
+          ],
+          "start": [
+            11
+          ],
+          "finish": [
+            14
+          ],
+          "teacher": "Féchín Runa",
+          "__v": 0
+        },
+        {
+          "_id": "63ab6b87add1bce489587b36",
+          "title": "Realidad Nacional, Constitución Y Derechos Humanos",
+          "code": "BRN01",
+          "semester": 6,
+          "credits": 3,
+          "section": "A",
+          "days": [
+            "Sábado"
+          ],
+          "start": [
+            14
+          ],
+          "finish": [
+            18
+          ],
+          "teacher": "Lina Gulnaz",
+          "__v": 0
+        }
+      ]
+      console.log(schedule[0])
   return (
     <Container>
       <RectStackStackStackStack>
@@ -118,80 +170,45 @@ const Horarios = () => {
             
              </Matricula12>
           </RectStackStack>
-          <PanelDeNavegacion>Matrícula</PanelDeNavegacion>
-          <Codigo>Código</Codigo>
-          <Nombre>Nombre</Nombre>
-          <Creditos>Creditos</Creditos>       <>
-          <>
-          
-  {courses.map((item, index) => {
-    const buttonColor = buttonColors[index] || 'red'; // obtiene el color del botón del estado o usa "red" como valor por defecto
 
+          <PanelDeNavegacion>Confirmar Matricula</PanelDeNavegacion>
+    
+          
+          <>
+          <>
+          <HorarioTitulo>Horario 1</HorarioTitulo>
+              <CursoTitulo >Curso</CursoTitulo>
+             <SeccionTitulo>Seccion</SeccionTitulo>
+             <DiaTitulo >Dia</DiaTitulo>
+             <HoraTitulo >Hora</HoraTitulo>
+             <DocenteTitulo >Docente</DocenteTitulo>
+
+  {prueba.map((item, index) => {
     return (
       <>
       
-      <svg
-              viewBox="0 0 44.61 40.97"
-              style={{
-                top: 290 + (index * 60), // Aumenta la posición en 50 px en cada iteración
-                left: 400,
-                width: 45,
-                height: 41,
-                position: "absolute"
-              }}
-            >
-              <ellipse
-                stroke="rgba(230, 230, 230,1)"
-                strokeWidth={0}
-                fill="rgba(14,241,100,1)"
-                cx={22}
-                cy={20}
-                rx={22}
-                ry={20}
-              ></ellipse>
-            </svg>
-            <Cc3M2Stack
-              style={{
-                top: 290 + (index * 60) // Ajusta la posición al mismo valor que el elipse
-              }}
-            >
-              <Cc3M2>{item.code}</Cc3M2>
-            </Cc3M2Stack>
-            <Cc3M22
-              style={{
-                top: 290 + (index * 60) // Ajusta la posición al mismo valor que el elipse
-              }}
-            >
-              {item._id}
-            </Cc3M22>
-            <Cc5
-              style={{
-                top: 290 + (index * 60) // Ajusta la posición al mismo valor que el elipse
-              }}
-            >
-              {item.credits}
-            </Cc5>
-        <ButtonM 
-          style={{ top: 290 + (index * 60), backgroundColor: buttonColor }} 
-          onClick={() =>{
-            Enrollment(index)
-          }
-            
-          }
-        >
-          <ButtonOverlay>+</ButtonOverlay>
-        </ButtonM>
+      <Curso  style={{
+                top: 400 + (index * 80) // Ajusta la posición al mismo valor que el elipse
+              }}>{item.code}</Curso>
+        <Seccion style={{
+                top: 400 + (index * 80) // Ajusta la posición al mismo valor que el elipse
+              }}>{item.section}</Seccion>
+        <Dia style={{
+            top: 400 + (index *80) // Ajusta la posición al mismo valor que el elipse
+          }}>{item.days.join(', ')}</Dia>
+        <Hora style={{
+                top: 400 + (index * 80) // Ajusta la posición al mismo valor que el elipse
+              }}>{item.start.join('-')}{"-"}{item.finish.join('-')}</Hora>
+        <Docente style={{
+                top: 400 + (index * 80) // Ajusta la posición al mismo valor que el elipse
+              }}>{item.teacher}</Docente>
+        
       </>
     );
   })}
 </>
+</>
 
-      </>
-          
-        <CreditosTotales>Creditos totales:</CreditosTotales>
-        <CreditosUsados>Creditos usados:</CreditosUsados>
-        <Creditos1>22</Creditos1>
-        <Creditos2>{credused}</Creditos2>
         </RectStackStackStack>
         <Link to="/CursosDisponibles">
           
@@ -225,9 +242,6 @@ const Horarios = () => {
               </ButtonOverlay>
             </Button6>
           </Link>
-          <Rect19 onClick={() =>console.log(handleSubmit())}><Matricular >
-          Matricular
-            </Matricular></Rect19>
         </Button5Stack>
         
       </RectStackStackStackStack>
@@ -237,6 +251,162 @@ const Horarios = () => {
     </Container>
   );
 }
+
+const HoraTitulo = styled.span`
+  font-family: Roboto;
+  top: 326px;
+  left: 920px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 29px;
+  width: 133px;
+  font-size: 25px;
+`;
+const Dia = styled.span`
+  font-family: Roboto;
+  top: 400px;
+  left: 720px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 29px;
+  width: 91px;
+  font-size: 25px;
+`;
+const Seccion = styled.span`
+  font-family: Roboto;
+  top: 400px;
+  left: 600px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 29px;
+  width: 133px;
+  font-size: 25px;
+`;
+const Curso= styled.span`
+font-family: Roboto;
+top: 400px;
+left: 440px;
+position: absolute;
+font-style: normal;
+font-weight: 400;
+color: #121212;
+height: 29px;
+width: 133px;
+font-size: 25px;
+`;
+const SeccionTitulo = styled.span`
+  font-family: Roboto;
+  top: 326px;
+  left: 573px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 29px;
+  width: 133px;
+  font-size: 25px;
+`;
+
+const DocenteTitulo = styled.span`
+  font-family: Roboto;
+  top: 326px;
+  left: 1144px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 29px;
+  width: 177px;
+  font-size: 25px;
+`;
+
+const A12 = styled.span`
+  font-family: Roboto;
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 29px;
+  width: 137px;
+  font-size: 25px;
+`;
+
+const Miercoles = styled.span`
+  font-family: Roboto;
+  top: 0px;
+  left: 99px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 29px;
+  width: 180px;
+  font-size: 25px;
+`;
+
+const A12Stack = styled.div`
+  top: 399px;
+  left: 619px;
+  width: 279px;
+  height: 29px;
+  position: absolute;
+`;
+
+const Hora = styled.span`
+  font-family: Roboto;
+  top: 399px;
+  left: 920px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 29px;
+  width: 180px;
+  font-size: 25px;
+`;
+
+const Docente = styled.span`
+  font-family: Roboto;
+  top: 399px;
+  left: 1144px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 29px;
+  width: 180px;
+  font-size: 25px;
+`;
+const Rect20 = styled.div`
+top: 230px;
+left: 820px;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  background-color: #E6E6E6;
+  right: 1114px;
+`;
+
+const DiaTitulo = styled.span`
+  font-family: Roboto;
+  top: 325px;
+  left: 746px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 29px;
+  width: 91px;
+  font-size: 25px;
+`;
 
 const CreditosTotales = styled.span`
   font-family: Roboto;
@@ -300,7 +470,6 @@ const Rect19 = styled.div`
 `;
 
 const Matricular = styled.span`
-  user-select: none;
   font-family: Roboto;
   font-style: normal;
   font-weight: 400;
@@ -309,29 +478,29 @@ const Matricular = styled.span`
   margin-top: 8px;
   margin-left: 23px;
 `;
-const Codigo = styled.span`
-  font-family: Roboto;
-  top: 235px;
-  left: 482px;
-  position: absolute;
-  font-style: normal;
-  font-weight: 400;
-  color: #121212;
-  height: 29px;
-  width: 91px;
-  font-size: 25px;
+const CursoTitulo = styled.span`
+font-family: Roboto;
+top: 326px;
+left: 440px;
+position: absolute;
+font-style: normal;
+font-weight: 400;
+color: #121212;
+height: 29px;
+width: 133px;
+font-size: 25px;
 `;
 
-const Nombre = styled.span`
+const HorarioTitulo = styled.span`
   font-family: Roboto;
   top: 235px;
-  left: 669px;
+  left: 869px;
   position: absolute;
   font-style: normal;
   font-weight: 400;
   color: #121212;
   height: 29px;
-  width: 91px;
+  width: 100px;
   font-size: 25px;
 `;
 
@@ -358,7 +527,7 @@ const Cc3M22 = styled.span`
   color: #121212;
   height: 29px;
   width: 322px;
-  font-size: 20px;
+  font-size: 25px;
 `;
 
 const Cc5 = styled.span`

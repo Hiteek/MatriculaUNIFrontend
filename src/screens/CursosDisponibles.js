@@ -3,9 +3,14 @@ import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import CursosDisponiblesVoice from "../voice_interface/CursosDisponiblesVoice";
+import Speaker from "../voice_interface/Speaker";
 
 const CursoDisponibles = () => {
-  CursosDisponiblesVoice();
+
+  useEffect(() => {
+    Speaker("Bienvenido a cursos disponibles\n\nDi. Cursos. Para listarte tus cursos permitidos");
+  }, []);
+
   const [student,setStudent] = useState([])
 
   useEffect(()=>{
@@ -48,9 +53,9 @@ const CursoDisponibles = () => {
     </li>
   ))
   let a = [
-    { name: 'Curso 1', code: 'CM32', cred: 3 },
-    { name: 'Curso 2', code: 'CM33', cred: 1 },
-    { name: 'Curso 3', code: 'CM35', cred: 4 }
+    { _id: 'Curso 1', code: 'CM32', credits: 3 },
+    { _id: 'Curso 2', code: 'CM33', credits: 1 },
+    { _id: 'Curso 3', code: 'CM35', credits: 4 }
   ];
   console.log(a)
   let filteredCourses = a.filter(course => course.code === 'CM32');
@@ -59,6 +64,11 @@ const CursoDisponibles = () => {
   }
   const items = [1, 2, 3];
 
+  useEffect(() => {
+    setCourses(a);
+  }, [])
+
+  CursosDisponiblesVoice(courses);
 
   return (
     <Container>
@@ -137,14 +147,14 @@ const CursoDisponibles = () => {
                 top: 290 + (index * 50) // Ajusta la posición al mismo valor que el elipse
               }}
             >
-              {item.name}
+              {item._id}
             </Cc3M22>
             <Cc5
               style={{
                 top: 290 + (index * 50) // Ajusta la posición al mismo valor que el elipse
               }}
             >
-              {item.cred}
+              {item.credits}
             </Cc5>
             <ButtonM style={{
                 top: 290 + (index * 50) // Ajusta la posición al mismo valor que el elipse

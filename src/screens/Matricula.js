@@ -2,10 +2,17 @@ import React, { useState, useEffect, Component } from "react";
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 import axios from 'axios';
-import CursosDisponiblesVoice from "../voice_interface/CursosDisponiblesVoice";
+
+import MatriculaVoice from "../voice_interface/MatriculaVoice";
+import Speaker from "../voice_interface/Speaker";
 
 const Matricula = () => {
-  CursosDisponiblesVoice();
+
+  useEffect(() => {
+    Speaker("Bienvenido a matricula");
+  }, []);
+
+
   const [student,setStudent] = useState([])
 
   useEffect(()=>{
@@ -74,6 +81,9 @@ const Matricula = () => {
       body: JSON.stringify({"enrolled":enroll}),
     });
   }
+
+  MatriculaVoice();
+
   return (
     <Container>
       <RectStackStackStackStack>

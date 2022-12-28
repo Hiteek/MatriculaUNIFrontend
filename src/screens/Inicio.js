@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 
 import InicioVoice from "../voice_interface/InicioVoice";
+import Speaker from "../voice_interface/Speaker";
 
 const Inicio = () => {
   InicioVoice();
@@ -19,6 +20,9 @@ const Inicio = () => {
     
   }, []);
   
+  useEffect(() => {
+    Speaker("Bienvenido " + student.name + "!\nDi. Instrucciones. Si gustas obtener mayor información");
+  }, []);
 
   const [foto,setFoto] = useState([])
   

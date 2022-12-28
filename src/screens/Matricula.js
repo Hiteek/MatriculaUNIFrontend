@@ -2,10 +2,16 @@ import React, { useState, useEffect, Component } from "react";
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 import axios from 'axios';
-import CursosDisponiblesVoice from "../voice_interface/CursosDisponiblesVoice";
+
+import MatriculaVoice from "../voice_interface/MatriculaVoice";
+import Speaker from "../voice_interface/Speaker";
 
 const Matricula = () => {
-  CursosDisponiblesVoice();
+
+  useEffect(() => {
+    Speaker("Bienvenido a matrícula\n\nSi gustas matricularte o desmatricularte a un curso, di. Matricular. Más el nombre del curso");
+  }, []);
+
   const [student,setStudent] = useState([])
 
   useEffect(()=>{
@@ -63,6 +69,14 @@ const Matricula = () => {
       setCredused(credused+courses[index].credits)
     }
     
+    const buttonColor = buttonColors[index];
+    setButtonColors([
+      ...buttonColors.slice(0, index), // toma todos los colores de los botones hasta el índice actual
+      buttonColor === 'red' ? 'green' : 'red', // cambia el color del botón al opuesto
+      ...buttonColors.slice(index + 1) // toma todos los colores de los botones desde el índice siguiente
+    ]);
+
+    return buttonColor === 'red' ? true : false;
   }
   
   function handleSubmit() {
@@ -74,6 +88,9 @@ const Matricula = () => {
       body: JSON.stringify({"enrolled":enroll}),
     });
   }
+
+  MatriculaVoice(Enrollment, courses);
+
   return (
     <Container>
       <RectStackStackStackStack>
@@ -170,11 +187,11 @@ const Matricula = () => {
           style={{ top: 290 + (index * 60), backgroundColor: buttonColor }} 
           onClick={() =>{
             Enrollment(index)
-            setButtonColors([
-              ...buttonColors.slice(0, index), // toma todos los colores de los botones hasta el índice actual
-              buttonColor === 'red' ? 'green' : 'red', // cambia el color del botón al opuesto
-              ...buttonColors.slice(index + 1) // toma todos los colores de los botones desde el índice siguiente
-            ]);
+            //setButtonColors([
+              //...buttonColors.slice(0, index), // toma todos los colores de los botones hasta el índice actual
+              //buttonColor === 'red' ? 'green' : 'red', // cambia el color del botón al opuesto
+              //...buttonColors.slice(index + 1) // toma todos los colores de los botones desde el índice siguiente
+            //]);
           }
             
           }

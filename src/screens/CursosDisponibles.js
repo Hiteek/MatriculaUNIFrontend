@@ -3,9 +3,14 @@ import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import CursosDisponiblesVoice from "../voice_interface/CursosDisponiblesVoice";
+import Speaker from "../voice_interface/Speaker";
 
 const CursoDisponibles = () => {
-  CursosDisponiblesVoice();
+
+  useEffect(() => {
+    Speaker("Bienvenido a cursos disponibles\n\nDi. Cursos. Para listarte tus cursos permitidos");
+  }, []);
+
   const [student,setStudent] = useState([])
 
   useEffect(()=>{
@@ -49,7 +54,7 @@ const CursoDisponibles = () => {
     
   }, [student,foto]);
 
-
+  CursosDisponiblesVoice(courses);
 
   return (
     <Container>

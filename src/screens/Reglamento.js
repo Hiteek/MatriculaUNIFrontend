@@ -1,10 +1,15 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 
 import ReglamentoVoice from "../voice_interface/ReglamentoVoice";
+import Speaker from "../voice_interface/Speaker";
 
 function Reglamento(props) {
+  useEffect(() => {
+    Speaker("Bienvenido a reglamento");
+  }, [])
+
   ReglamentoVoice();
 
   return (

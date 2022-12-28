@@ -61,7 +61,13 @@ const Horarios = () => {
       setEnroll([...enroll, courses[index].code]);
       setCredused(credused+courses[index].credits)
     }
-    
+    const buttonColor = buttonColors[index];
+    setButtonColors([
+      ...buttonColors.slice(0, index), // toma todos los colores de los botones hasta el índice actual
+      buttonColor === 'red' ? 'green' : 'red', // cambia el color del botón al opuesto
+      ...buttonColors.slice(index + 1) // toma todos los colores de los botones desde el índice siguiente
+    ]);
+   
   }
   
   function handleSubmit() {
@@ -169,11 +175,6 @@ const Horarios = () => {
           style={{ top: 290 + (index * 60), backgroundColor: buttonColor }} 
           onClick={() =>{
             Enrollment(index)
-            setButtonColors([
-              ...buttonColors.slice(0, index), // toma todos los colores de los botones hasta el índice actual
-              buttonColor === 'red' ? 'green' : 'red', // cambia el color del botón al opuesto
-              ...buttonColors.slice(index + 1) // toma todos los colores de los botones desde el índice siguiente
-            ]);
           }
             
           }

@@ -1,11 +1,17 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 
 import ConfiguracionVoice from "../voice_interface/ConfiguracionVoice";
+import Speaker from "../voice_interface/Speaker";
 
 function Configuracion(props) {
+  useEffect(() => {
+    Speaker("Bienvenido a configuracion");
+  }, []);
+
   ConfiguracionVoice();
+
   return (
     <Container>
       <RectStackStack>

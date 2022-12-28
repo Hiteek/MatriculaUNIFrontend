@@ -3,8 +3,9 @@ import { useEffect } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import goToPage from './utils';
 import { useHistory } from 'react-router-dom';
+import Speaker from './Speaker';
 
-export default function MatriculaVoice() {
+export default function MatriculaVoice(Enrollment, courses) {
   const history = useHistory();
 
   const commands = [
@@ -12,7 +13,26 @@ export default function MatriculaVoice() {
       command: 'ir a *',
       callback:(page) => goToPage(page, history)
     },
+    {
+      command: 'matricular *',
+      callback: (name) => enrollCourse(name)
+    }
   ]
+
+  const enrollCourse = (name) => {
+    const index = findIndexCourse(name);
+    if(index == -1) return;
+    const enrolled = Enrollment(index);
+
+    if(enrolled) Speaker(name + ' matriculado');
+    else Speaker(name + ' desmatriculado');
+  };
+
+  const findIndexCourse = (name) => {
+    for(let i = 0; i < courses.length; i++)
+      if(courses[i]._id.toLowerCase() === name.toLowerCase()) return i;
+    return -1;
+  };
 
   const { transcript } = useSpeechRecognition({ commands });
   

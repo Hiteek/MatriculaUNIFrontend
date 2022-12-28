@@ -5,7 +5,7 @@ export default function Speaker(text) {
 
   const msg = new SpeechSynthesisUtterance(text)
   msg.lang = 'es-MX';
-  msg.voice = voices[66]
+  //msg.voice = voices[66]
 
   synth.speak(msg);
 }

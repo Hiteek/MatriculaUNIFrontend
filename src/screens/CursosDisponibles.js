@@ -53,9 +53,9 @@ const CursoDisponibles = () => {
     </li>
   ))
   let a = [
-    { _id: 'Curso 1', code: 'CM32', credits: 3 },
-    { _id: 'Curso 2', code: 'CM33', credits: 1 },
-    { _id: 'Curso 3', code: 'CM35', credits: 4 }
+    { _id: 'Realidad Nacional', code: 'CM32', credits: 3 },
+    { _id: 'Matemática Discreta', code: 'CM33', credits: 1 },
+    { _id: 'Programación paralela', code: 'CM35', credits: 4 }
   ];
   console.log(a)
   let filteredCourses = a.filter(course => course.code === 'CM32');

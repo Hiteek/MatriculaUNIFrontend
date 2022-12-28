@@ -12,7 +12,7 @@ export default function goToPage(page, history) {
   if (page.toLowerCase() === 'reglamento') {
     history.push('Reglamento');
   }
-  if (page.toLowerCase() === 'matrícula') {
+  if (page.toLowerCase() === 'matrícula' || page.toLowerCase() === 'matricular') {
     history.push('Matricula');
   }
 }

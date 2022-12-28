@@ -2,10 +2,9 @@ import React, { useState, useEffect, Component } from "react";
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 import axios from 'axios';
-import CursosDisponiblesVoice from "../voice_interface/CursosDisponiblesVoice";
 
-const Matricula = () => {
-  CursosDisponiblesVoice();
+
+const Horarios = () => {
   const [student,setStudent] = useState([])
 
   useEffect(()=>{
@@ -225,12 +224,9 @@ const Matricula = () => {
               </ButtonOverlay>
             </Button6>
           </Link>
-          <Link to="/Horarios" style={{textDecoration: 'none'}}>
           <Rect19 onClick={() =>console.log(handleSubmit())}><Matricular >
           Matricular
             </Matricular></Rect19>
-          </Link>
-          
         </Button5Stack>
         
       </RectStackStackStackStack>
@@ -987,4 +983,4 @@ const Version101 = styled.span`
   margin-left: 1694px;
 `;
 
-export default Matricula;
+export default Horarios;

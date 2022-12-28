@@ -6,6 +6,7 @@ import Matricula from "./screens/Matricula";
 import CursoDisponibles from "./screens/CursosDisponibles";
 import Reglamento from "./screens/Reglamento";
 import Configuracion from "./screens/Configuracion";
+import Horarios from "./screens/Horarios"
 import Test from "./screens/prueba";
 import "./style.css";
 
@@ -16,6 +17,7 @@ function App() {
       <Route path="/" exact component={Inicio}/>
       <Route path="/Inicio/" exact component={Inicio} />
       <Route path="/Matricula/" exact component={Matricula} />
+      <Route path="/Horarios" exact component={Horarios}/>
       <Route path="/CursosDisponibles/" exact component={CursoDisponibles} />
       <Route path="/Reglamento/" exact component={Reglamento} />
       <Route path="/Configuracion/" exact component={Configuracion} />

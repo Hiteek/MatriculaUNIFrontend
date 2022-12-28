@@ -21,45 +21,59 @@ const Matricula = () => {
   const [foto,setFoto] = useState([])
   
   useEffect(()=>{
+    let a = student ? student.code : '';
     const pedirFoto = async () => {
-      let a = (student && student.code)
       const respuesta = await fetch('/api/students/'+a+'/image');
       const datos = await respuesta;
       setFoto(datos.url);
     };
-    pedirFoto();
+    if (a) {
+      // llamar a la función solo si b tiene un valor válido
+      pedirFoto();
+    }
   },[student]);
 
   const [courses,setCourses] = useState([])
 
   useEffect(()=>{
+    let b = student ? student.code : '';
     const loadCourses = async () => {
-      const respuesta = await fetch('/api/courses/');
+      const respuesta = await fetch('/api/students/'+b+'/courses');
       const datos = await respuesta.json();
       setCourses(datos);
     };
-    loadCourses();
+    if (b) {
+      // llamar a la función solo si b tiene un valor válido
+      loadCourses();
+    }
     
-  }, []);
-  console.log(courses)
-  const list = courses.map(course => (
-    <li>
-      <h3>{course.code}{'\t'}{course._id}</h3>
-    </li>
-  ))
-  let a = [
-    { name: 'Curso 1', code: 'CM32', cred: 3 },
-    { name: 'Curso 2', code: 'CM33', cred: 1 },
-    { name: 'Curso 3', code: 'CM35', cred: 4 }
-  ];
-  console.log(a)
-  let filteredCourses = a.filter(course => course.code === 'CM32');
-  function handleButtonClick(event) {
-    // Lógica del manejador de eventos aquí
+  }, [student,foto]);
+
+  const [buttonColors, setButtonColors] = useState(['red','red','red','red','red']);
+
+  const [enroll, setEnroll] = useState([]);
+  const [credused,setCredused] = useState(0);
+  function Enrollment(index) {
+    if (enroll.includes(courses[index].code)) {
+      setEnroll(enroll.filter(c => c !=courses[index].code));
+      setCredused(credused-courses[index].credits)
+    }
+    else if (!enroll.includes(courses[index].code)) {
+      setEnroll([...enroll, courses[index].code]);
+      setCredused(credused+courses[index].credits)
+    }
+    
   }
-  const items = [1, 2, 3];
-
-
+  
+  function handleSubmit() {
+    fetch('/api/students/'+student.code+'/enrolled', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({"enrolled":enroll}),
+    });
+  }
   return (
     <Container>
       <RectStackStackStackStack>
@@ -103,12 +117,18 @@ const Matricula = () => {
           <Codigo>Código</Codigo>
           <Nombre>Nombre</Nombre>
           <Creditos>Creditos</Creditos>       <>
-        {a.map((item, index) => (
           <>
-            <svg
+          
+  {courses.map((item, index) => {
+    const buttonColor = buttonColors[index] || 'red'; // obtiene el color del botón del estado o usa "red" como valor por defecto
+
+    return (
+      <>
+      
+      <svg
               viewBox="0 0 44.61 40.97"
               style={{
-                top: 290 + (index * 50), // Aumenta la posición en 50 px en cada iteración
+                top: 290 + (index * 60), // Aumenta la posición en 50 px en cada iteración
                 left: 400,
                 width: 45,
                 height: 41,
@@ -127,38 +147,51 @@ const Matricula = () => {
             </svg>
             <Cc3M2Stack
               style={{
-                top: 290 + (index * 50) // Ajusta la posición al mismo valor que el elipse
+                top: 290 + (index * 60) // Ajusta la posición al mismo valor que el elipse
               }}
             >
               <Cc3M2>{item.code}</Cc3M2>
             </Cc3M2Stack>
             <Cc3M22
               style={{
-                top: 290 + (index * 50) // Ajusta la posición al mismo valor que el elipse
+                top: 290 + (index * 60) // Ajusta la posición al mismo valor que el elipse
               }}
             >
-              {item.name}
+              {item._id}
             </Cc3M22>
             <Cc5
               style={{
-                top: 290 + (index * 50) // Ajusta la posición al mismo valor que el elipse
+                top: 290 + (index * 60) // Ajusta la posición al mismo valor que el elipse
               }}
             >
-              {item.cred}
+              {item.credits}
             </Cc5>
-            <ButtonM style={{
-                top: 290 + (index * 50) // Ajusta la posición al mismo valor que el elipse
-              }}>
-              <ButtonOverlay>+</ButtonOverlay>
-            </ButtonM>
-          </>
-        ))}
+        <ButtonM 
+          style={{ top: 290 + (index * 60), backgroundColor: buttonColor }} 
+          onClick={() =>{
+            Enrollment(index)
+            setButtonColors([
+              ...buttonColors.slice(0, index), // toma todos los colores de los botones hasta el índice actual
+              buttonColor === 'red' ? 'green' : 'red', // cambia el color del botón al opuesto
+              ...buttonColors.slice(index + 1) // toma todos los colores de los botones desde el índice siguiente
+            ]);
+          }
+            
+          }
+        >
+          <ButtonOverlay>+</ButtonOverlay>
+        </ButtonM>
+      </>
+    );
+  })}
+</>
+
       </>
           
         <CreditosTotales>Creditos totales:</CreditosTotales>
         <CreditosUsados>Creditos usados:</CreditosUsados>
         <Creditos1>22</Creditos1>
-        <Creditos2>10</Creditos2>
+        <Creditos2>{credused}</Creditos2>
         </RectStackStackStack>
         <Link to="/CursosDisponibles">
           
@@ -192,9 +225,9 @@ const Matricula = () => {
               </ButtonOverlay>
             </Button6>
           </Link>
-          <Rect19>
-          <Matricular>Matricular</Matricular>
-        </Rect19>
+          <Rect19 onClick={() =>console.log(handleSubmit())}><Matricular >
+          Matricular
+            </Matricular></Rect19>
         </Button5Stack>
         
       </RectStackStackStackStack>
@@ -267,6 +300,7 @@ const Rect19 = styled.div`
 `;
 
 const Matricular = styled.span`
+  user-select: none;
   font-family: Roboto;
   font-style: normal;
   font-weight: 400;
@@ -324,7 +358,7 @@ const Cc3M22 = styled.span`
   color: #121212;
   height: 29px;
   width: 322px;
-  font-size: 25px;
+  font-size: 20px;
 `;
 
 const Cc5 = styled.span`

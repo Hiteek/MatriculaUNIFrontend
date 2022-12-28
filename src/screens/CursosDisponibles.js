@@ -21,43 +21,34 @@ const CursoDisponibles = () => {
   const [foto,setFoto] = useState([])
   
   useEffect(()=>{
+    let a = student ? student.code : '';
     const pedirFoto = async () => {
-      let a = (student && student.code)
       const respuesta = await fetch('/api/students/'+a+'/image');
       const datos = await respuesta;
       setFoto(datos.url);
     };
-    pedirFoto();
+    if (a) {
+      // llamar a la función solo si b tiene un valor válido
+      pedirFoto();
+    }
   },[student]);
 
   const [courses,setCourses] = useState([])
 
   useEffect(()=>{
+    let b = student ? student.code : '';
     const loadCourses = async () => {
-      const respuesta = await fetch('/api/courses/');
+      const respuesta = await fetch('/api/students/'+b+'/courses');
       const datos = await respuesta.json();
       setCourses(datos);
     };
-    loadCourses();
+    if (b) {
+      // llamar a la función solo si b tiene un valor válido
+      loadCourses();
+    }
     
-  }, []);
-  console.log(courses)
-  const list = courses.map(course => (
-    <li>
-      <h3>{course.code}{'\t'}{course._id}</h3>
-    </li>
-  ))
-  let a = [
-    { name: 'Curso 1', code: 'CM32', cred: 3 },
-    { name: 'Curso 2', code: 'CM33', cred: 1 },
-    { name: 'Curso 3', code: 'CM35', cred: 4 }
-  ];
-  console.log(a)
-  let filteredCourses = a.filter(course => course.code === 'CM32');
-  function handleButtonClick(event) {
-    // Lógica del manejador de eventos aquí
-  }
-  const items = [1, 2, 3];
+  }, [student,foto]);
+
 
 
   return (
@@ -103,12 +94,12 @@ const CursoDisponibles = () => {
           <Codigo>Código</Codigo>
           <Nombre>Nombre</Nombre>
           <Creditos>Creditos</Creditos>       <>
-        {a.map((item, index) => (
+        {courses.map((item, index) => (
           <>
             <svg
               viewBox="0 0 44.61 40.97"
               style={{
-                top: 290 + (index * 50), // Aumenta la posición en 50 px en cada iteración
+                top: 290 + (index * 60), // Aumenta la posición en 50 px en cada iteración
                 left: 400,
                 width: 45,
                 height: 41,
@@ -127,27 +118,27 @@ const CursoDisponibles = () => {
             </svg>
             <Cc3M2Stack
               style={{
-                top: 290 + (index * 50) // Ajusta la posición al mismo valor que el elipse
+                top: 290 + (index * 60) // Ajusta la posición al mismo valor que el elipse
               }}
             >
               <Cc3M2>{item.code}</Cc3M2>
             </Cc3M2Stack>
             <Cc3M22
               style={{
-                top: 290 + (index * 50) // Ajusta la posición al mismo valor que el elipse
+                top: 290 + (index * 60) // Ajusta la posición al mismo valor que el elipse
               }}
             >
-              {item.name}
+              {item._id}
             </Cc3M22>
             <Cc5
               style={{
-                top: 290 + (index * 50) // Ajusta la posición al mismo valor que el elipse
+                top: 290 + (index * 60) // Ajusta la posición al mismo valor que el elipse
               }}
             >
-              {item.cred}
+              {item.credits}
             </Cc5>
             <ButtonM style={{
-                top: 290 + (index * 50) // Ajusta la posición al mismo valor que el elipse
+                top: 290 + (index * 60) // Ajusta la posición al mismo valor que el elipse
               }}>
               <ButtonOverlay>+info</ButtonOverlay>
             </ButtonM>
@@ -318,7 +309,7 @@ const Cc3M22 = styled.span`
   color: #121212;
   height: 29px;
   width: 322px;
-  font-size: 25px;
+  font-size: 20px;
 `;
 
 const Cc5 = styled.span`

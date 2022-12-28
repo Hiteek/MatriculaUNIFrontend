@@ -9,7 +9,7 @@ import Speaker from "../voice_interface/Speaker";
 const Matricula = () => {
 
   useEffect(() => {
-    Speaker("Bienvenido a matrícula");
+    Speaker("Bienvenido a matrícula\n\nSi gustas matricularte o desmatricularte a un curso, di. Matricular. Más el nombre del curso");
   }, []);
 
   const [student,setStudent] = useState([])
@@ -98,7 +98,7 @@ const Matricula = () => {
     setCourses(a);
   }, [])
 
-  MatriculaVoice(Enrollment);
+  MatriculaVoice(Enrollment, courses);
 
   return (
     <Container>

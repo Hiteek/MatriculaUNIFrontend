@@ -28,9 +28,13 @@ export default function MatriculaVoice(Enrollment, courses) {
     else Speaker(name + ' desmatriculado');
   };
 
+  function eliminarDiacriticos(texto) {
+    return texto.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+  }
+
   const findIndexCourse = (name) => {
     for(let i = 0; i < courses.length; i++)
-      if(courses[i]._id.toLowerCase() === name.toLowerCase()) return i;
+      if(eliminarDiacriticos(courses[i]._id.toLowerCase()) === eliminarDiacriticos(name.toLowerCase())) return i;
     return -1;
   };
 

@@ -20,9 +20,6 @@ const Inicio = () => {
     
   }, []);
   
-  useEffect(() => {
-    Speaker("Bienvenido " + student.name + "!\nDi. Instrucciones. Si gustas obtener mayor información");
-  }, []);
 
   const [foto,setFoto] = useState([])
   
@@ -35,6 +32,10 @@ const Inicio = () => {
     };
     pedirFoto();
   },[student]);
+
+  useEffect(() => {
+    Speaker("Bienvenido " + " Juan " + "!\nDi. Instrucciones. Si gustas obtener mayor información");
+  }, []);
   
   const hora = new Date().getHours();
   const horas = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22];

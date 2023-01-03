@@ -34,8 +34,8 @@ const Inicio = () => {
   },[student]);
 
   useEffect(() => {
-    Speaker("Bienvenido " + " Juan " + "!\nDi. Instrucciones. Si gustas obtener mayor información");
-  }, []);
+    Speaker("Bienvenido " + student.name + "!\nDi. Instrucciones. Si gustas obtener mayor información");
+  }, [student]);
   
   const hora = new Date().getHours();
   const horas = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22];
@@ -58,7 +58,11 @@ const Inicio = () => {
       break;
     }
   }
-
+  function handleClick() {
+    const link = `https://drive.google.com/file/d/1WMeM8_MXGmv5iaH9MIgjuMqRQTfALbGP/view`;
+    
+    window.open(link, '_blank');
+  }
 
   return (
     <Container>
@@ -122,13 +126,11 @@ const Inicio = () => {
           </Link>
           <PanelDeNavegacion>Panel de navegación</PanelDeNavegacion>
         </RectStackStackStack>
-        <Link to="/Reglamento">
-          <Button9>
+          <Button9 onClick={handleClick}>
             <ButtonOverlay>
               <Reglamento2>Reglamento</Reglamento2>
             </ButtonOverlay>
           </Button9>
-        </Link>
         <Link to="/Configuracion">
           <Button10>
             <ButtonOverlay>
@@ -143,13 +145,11 @@ const Inicio = () => {
             </ButtonOverlay>
           </Button3>
         </Link>
-        <Link to="/Reglamento">
-          <Button4>
+          <Button4 onClick={handleClick}>
             <ButtonOverlay>
               <Reglamento1>Reglamento</Reglamento1>
             </ButtonOverlay>
           </Button4>
-        </Link>
         <Button5Stack>
           <Link to="/Configuracion">
             <Button5>

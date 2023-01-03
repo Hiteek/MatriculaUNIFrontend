@@ -4,7 +4,6 @@ import "./icons.js";
 import Inicio from "./screens/Inicio";
 import Matricula from "./screens/Matricula";
 import CursoDisponibles from "./screens/CursosDisponibles";
-import Reglamento from "./screens/Reglamento";
 import Configuracion from "./screens/Configuracion";
 import Horarios from "./screens/Horarios"
 import Test from "./screens/prueba";
@@ -19,7 +18,6 @@ function App() {
       <Route path="/Matricula/" exact component={Matricula} />
       <Route path="/Horarios" exact component={Horarios}/>
       <Route path="/CursosDisponibles/" exact component={CursoDisponibles} />
-      <Route path="/Reglamento/" exact component={Reglamento} />
       <Route path="/Configuracion/" exact component={Configuracion} />
       <Route path="/test/" exact component={Test} />
     </Router>

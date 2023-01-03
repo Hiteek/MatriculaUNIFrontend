@@ -55,7 +55,11 @@ const CursoDisponibles = () => {
   }, [student,foto]);
 
   CursosDisponiblesVoice(courses);
-
+  function handleClick() {
+    const link = `https://drive.google.com/file/d/1WMeM8_MXGmv5iaH9MIgjuMqRQTfALbGP/view`;
+    
+    window.open(link, '_blank');
+  }
   return (
     <Container>
       <RectStackStackStackStack>
@@ -161,13 +165,13 @@ const CursoDisponibles = () => {
             </ButtonOverlay>
           </Button3>
         </Link>
-        <Link to="/Reglamento">
-          <Button4>
+
+          <Button4 onClick={handleClick}>
             <ButtonOverlay>
               <Reglamento1>Reglamento</Reglamento1>
             </ButtonOverlay>
           </Button4>
-        </Link>
+
         
         <Button5Stack>
           <Link to="/Configuracion">

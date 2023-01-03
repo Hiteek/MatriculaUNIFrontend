@@ -78,7 +78,11 @@ const Matricula = () => {
 
     return buttonColor === 'red' ? true : false;
   }
-  
+  function handleClick() {
+    const link = `https://drive.google.com/file/d/1WMeM8_MXGmv5iaH9MIgjuMqRQTfALbGP/view`;
+    
+    window.open(link, '_blank');
+  }
   function handleSubmit() {
     fetch('/api/students/'+student.code+'/enrolled', {
       method: 'PUT',
@@ -245,7 +249,8 @@ const Matricula = () => {
           <Link to="/Horarios" style={{textDecoration: 'none'}}>
           <Rect19 onClick={() =>console.log(handleSubmit())}><Matricular >
           Matricular
-            </Matricular></Rect19>
+            </Matricular>
+            </Rect19>
           </Link>
           
         </Button5Stack>

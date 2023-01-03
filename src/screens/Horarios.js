@@ -70,7 +70,11 @@ const Horarios = () => {
         const wordSlider=schedule[index];
         setWordData(wordSlider)
       }
-      console.log(wordData)
+      function handleClick1() {
+        const link = `https://drive.google.com/file/d/1WMeM8_MXGmv5iaH9MIgjuMqRQTfALbGP/view`;
+        
+        window.open(link, '_blank');
+      }
   return (
     <Container>
       <RectStackStackStackStack>
@@ -163,13 +167,11 @@ const Horarios = () => {
             </ButtonOverlay>
           </Button3>
         </Link>
-        <Link to="/Reglamento">
-          <Button4>
+          <Button4 onClick={handleClick1}>
             <ButtonOverlay>
               <Reglamento1>Reglamento</Reglamento1>
             </ButtonOverlay>
           </Button4>
-        </Link>
         
         <Button5Stack>
           <Link to="/Configuracion">
@@ -187,6 +189,11 @@ const Horarios = () => {
               </ButtonOverlay>
             </Button6>
           </Link>
+
+          <Rect19 ><Matricular >
+          Confirmar
+            </Matricular>
+            </Rect19>
         </Button5Stack>
         
       </RectStackStackStackStack>

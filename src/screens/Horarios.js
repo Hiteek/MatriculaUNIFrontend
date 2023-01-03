@@ -47,12 +47,6 @@ const Horarios = () => {
       }
       
     }, [student,foto]);
-  let a = [
-    { name: 'Curso 1', code: 'CM32', cred: 3 },
-    { name: 'Curso 2', code: 'CM33', cred: 1 },
-    { name: 'Curso 3', code: 'CM35', cred: 4 }
-  ];
-  console.log(a)
   const [schedule,setSchedule] = useState([])
 
   useEffect(()=>{
@@ -68,69 +62,15 @@ const Horarios = () => {
       }
       
     }, [student]);
-    let prueba =  [
-        {
-          "_id": "63a108228978ec1ec4b4cf22",
-          "__v": 0,
-          "code": "CC211",
-          "semester": 6,
-          "title": "Programacion Orientada a Objetos",
-          "section": "A",
-          "start": [
-            8,
-            10
-          ],
-          "days": [
-            "Lunes",
-            "Martes"
-          ],
-          "finish": [
-            10,
-            12
-          ],
-          "teacher": "Ciro Nunez",
-          "credits": 4
-        },
-        {
-          "_id": "63ab5e0fadd1bce489587b2e",
-          "title": "Ética y Filosofía Política",
-          "code": "BEF01",
-          "semester": 6,
-          "credits": 2,
-          "section": "A",
-          "days": [
-            "Viernes"
-          ],
-          "start": [
-            11
-          ],
-          "finish": [
-            14
-          ],
-          "teacher": "Féchín Runa",
-          "__v": 0
-        },
-        {
-          "_id": "63ab6b87add1bce489587b36",
-          "title": "Realidad Nacional, Constitución Y Derechos Humanos",
-          "code": "BRN01",
-          "semester": 6,
-          "credits": 3,
-          "section": "A",
-          "days": [
-            "Sábado"
-          ],
-          "start": [
-            14
-          ],
-          "finish": [
-            18
-          ],
-          "teacher": "Lina Gulnaz",
-          "__v": 0
-        }
-      ]
-      console.log(schedule[0])
+      
+    const [wordData,setWordData] = useState([]);
+
+      const handleClick=(index)=>{
+        console.log(index)
+        const wordSlider=schedule[index];
+        setWordData(wordSlider)
+      }
+      console.log(wordData)
   return (
     <Container>
       <RectStackStackStackStack>
@@ -161,53 +101,58 @@ const Horarios = () => {
                 <Button2>
                   <ButtonOverlay>
                     <Matricula11>Matrícula</Matricula11>
-                    
                   </ButtonOverlay>
                 </Button2>
               </Link>
             </Rect4Stack>
-            <Matricula12>    
-            
-             </Matricula12>
           </RectStackStack>
-
           <PanelDeNavegacion>Confirmar Matricula</PanelDeNavegacion>
-    
-          
-          <>
-          <>
-          <HorarioTitulo>Horario 1</HorarioTitulo>
+          <HorarioTitulo>Horarios</HorarioTitulo>
               <CursoTitulo >Curso</CursoTitulo>
-             <SeccionTitulo>Seccion</SeccionTitulo>
+             <SeccionTitulo >Seccion</SeccionTitulo>
              <DiaTitulo >Dia</DiaTitulo>
              <HoraTitulo >Hora</HoraTitulo>
-             <DocenteTitulo >Docente</DocenteTitulo>
+             <DocenteTitulo>Docente</DocenteTitulo>  
+             <>
+            {wordData.map((it,inde)=>
+              
+              <>
+              <div key={inde}>
+              <Curso style={{
+                top: 400 + (inde * 70)  // Ajusta la posición al mismo valor que el elipse
+              }}>{it.code}</Curso>
+                <Seccion style={{
+                top: 400 + (inde * 70)  // Ajusta la posición al mismo valor que el elipse
+              }}>{it.section}</Seccion>
+            <Dia style={{
+                top: 400 + (inde * 70)  // Ajusta la posición al mismo valor que el elipse
+              }}>{it.days.join(', ')}</Dia>
+            <Hora style={{
+                top: 400 + (inde * 70)  // Ajusta la posición al mismo valor que el elipse
+              }}>{it.start.join("-")}{"-"}{it.finish.join("-")}</Hora>
+            <Docente style={{
+                top: 400 + (inde * 70)  // Ajusta la posición al mismo valor que el elipse
+              }}>{it.teacher}</Docente>
+            </div>
+              </>
+    
+            )}
 
-  {prueba.map((item, index) => {
-    return (
-      <>
-      
-      <Curso  style={{
-                top: 400 + (index * 80) // Ajusta la posición al mismo valor que el elipse
-              }}>{item.code}</Curso>
-        <Seccion style={{
-                top: 400 + (index * 80) // Ajusta la posición al mismo valor que el elipse
-              }}>{item.section}</Seccion>
-        <Dia style={{
-            top: 400 + (index *80) // Ajusta la posición al mismo valor que el elipse
-          }}>{item.days.join(', ')}</Dia>
-        <Hora style={{
-                top: 400 + (index * 80) // Ajusta la posición al mismo valor que el elipse
-              }}>{item.start.join('-')}{"-"}{item.finish.join('-')}</Hora>
-        <Docente style={{
-                top: 400 + (index * 80) // Ajusta la posición al mismo valor que el elipse
-              }}>{item.teacher}</Docente>
-        
-      </>
-    );
-  })}
-</>
-</>
+            </>
+              
+              {schedule.map((data,i)=>
+              <>
+              
+              <Matricula12 style={{
+                left: 400 + (i * 40)  // Ajusta la posición al mismo valor que el elipse
+              }} key={i} onClick={()=>handleClick(i)}>{i+1}</Matricula12>
+              </>
+                
+                
+              )}
+
+          
+
 
         </RectStackStackStack>
         <Link to="/CursosDisponibles">
@@ -500,7 +445,7 @@ const HorarioTitulo = styled.span`
   font-weight: 400;
   color: #121212;
   height: 29px;
-  width: 100px;
+  width: 120px;
   font-size: 25px;
 `;
 
@@ -892,18 +837,18 @@ const Button7 = styled.div`
 `;
 
 const Matricula12 = styled.span`
-font-family: Roboto;
-top: 200px;
-left: 357px;
-position: absolute;
-font-style: normal;
-font-weight: 700;
-color: rgba(49,47,47,1);
-height: 81px;
-width: 688px;
-font-size: 20px;
+  float: left;
+  font-family: Roboto;
+  top: 800px;
+  left: 200px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 700;
+  color: rgba(49,47,47,1);
+  height: 60px;
+  width: 600px;
+  font-size: 20px;
 `;
-
 const Button8 = styled.div`
   top: 225px;
   left: 982px;

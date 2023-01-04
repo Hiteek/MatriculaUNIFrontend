@@ -1,7 +1,6 @@
 import React, { useState, useEffect, Component } from "react";
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
-import axios from 'axios';
 
 import InicioVoice from "../voice_interface/InicioVoice";
 import Speaker from "../voice_interface/Speaker";
@@ -108,32 +107,532 @@ const Configuracion = () => {
               Tú turno{"\n"}{student.turn}{"\n"}{melapse}
             </JuanCamarena1>
           </Rect9>
-          <Link to="/Matricula">
+          <PanelDeNavegacion>Configuración</PanelDeNavegacion>
             <Button7>
               <ButtonOverlay>
                 <Matricula12>Idioma</Matricula12>
               </ButtonOverlay>
             </Button7>
-          </Link>
-          <Link to="/CursosDisponibles">
+            <Button14>
+            <ButtonOverlay>
+              <Ingles>Ingles</Ingles>
+            </ButtonOverlay>
+          </Button14>
+
+          <Button13>
+            <ButtonOverlay>
+              <Espanol>Español</Espanol>
+            </ButtonOverlay>
+          </Button13>
+          
             <Button8>
               <ButtonOverlay>
                 <CursosDisponibles>Cambiar Voz</CursosDisponibles>
               </ButtonOverlay>
             </Button8>
-          </Link>
-          <PanelDeNavegacion>Configuración</PanelDeNavegacion>
-        </RectStackStackStack>
-          <Button9 >
+
+            <Button12>
+              <ButtonOverlay>
+                <Mujer>Mujer</Mujer>
+              </ButtonOverlay>
+            </Button12>
+            <Button21>
+              <ButtonOverlay>
+                <Hombre>Hombre</Hombre>
+              </ButtonOverlay>
+            </Button21>
+
+
+            <Button9 >
             <ButtonOverlay>
               <Reglamento2>Velocidad</Reglamento2>
             </ButtonOverlay>
           </Button9>
+            <EllipseStack>
+            <svg
+              viewBox="0 0 50.31 53.2"
+              style={{
+                top: 0,
+                left: 0,
+                width: 50,
+                height: 53,
+                position: "absolute"
+              }}
+            >
+              <ellipse
+                stroke="rgba(230, 230, 230,1)"
+                strokeWidth={0}
+                fill="rgba(212,149,149,1)"
+                cx={25}
+                cy={27}
+                rx={25}
+                ry={27}
+              ></ellipse>
+            </svg>
+            <LoremIpsum>1</LoremIpsum>
+          </EllipseStack>
+          
+          <Ellipse1Stack>
+            <svg
+              viewBox="0 0 50.31 53.2"
+              style={{
+                top: 0,
+                left: 0,
+                width: 50,
+                height: 53,
+                position: "absolute"
+              }}
+            >
+              <ellipse
+                stroke="rgba(230, 230, 230,1)"
+                strokeWidth={0}
+                fill="rgba(212,149,149,1)"
+                cx={25}
+                cy={27}
+                rx={25}
+                ry={27}
+              ></ellipse>
+            </svg>
+            <LoremIpsum2>2</LoremIpsum2>
+          </Ellipse1Stack>
+          <Ellipse2Stack>
+            <svg
+              viewBox="0 0 50.31 53.2"
+              style={{
+                top: 0,
+                left: 0,
+                width: 50,
+                height: 53,
+                position: "absolute"
+              }}
+            >
+              <ellipse
+                stroke="rgba(230, 230, 230,1)"
+                strokeWidth={0}
+                fill="rgba(212,149,149,1)"
+                cx={25}
+                cy={27}
+                rx={25}
+                ry={27}
+              ></ellipse>
+            </svg>
+            <LoremIpsum3>3</LoremIpsum3>
+          </Ellipse2Stack>
+          <Ellipse3Stack>
+            <svg
+              viewBox="0 0 50.31 53.2"
+              style={{
+                top: 0,
+                left: 0,
+                width: 50,
+                height: 53,
+                position: "absolute"
+              }}
+            >
+              <ellipse
+                stroke="rgba(230, 230, 230,1)"
+                strokeWidth={0}
+                fill="rgba(212,149,149,1)"
+                cx={25}
+                cy={27}
+                rx={25}
+                ry={27}
+              ></ellipse>
+            </svg>
+            <LoremIpsum4>4</LoremIpsum4>
+          </Ellipse3Stack>
+          <Ellipse4Stack>
+            <svg
+              viewBox="0 0 50.31 53.2"
+              style={{
+                top: 0,
+                left: 0,
+                width: 50,
+                height: 53,
+                position: "absolute"
+              }}
+            >
+              <ellipse
+                stroke="rgba(230, 230, 230,1)"
+                strokeWidth={0}
+                fill="rgba(212,149,149,1)"
+                cx={25}
+                cy={27}
+                rx={25}
+                ry={27}
+              ></ellipse>
+            </svg>
+            <LoremIpsum5>5</LoremIpsum5>
+          </Ellipse4Stack>
+          <Ellipse5Stack>
+            <svg
+              viewBox="0 0 50.31 53.2"
+              style={{
+                top: 0,
+                left: 0,
+                width: 50,
+                height: 53,
+                position: "absolute"
+              }}
+            >
+              <ellipse
+                stroke="rgba(230, 230, 230,1)"
+                strokeWidth={0}
+                fill="rgba(212,149,149,1)"
+                cx={25}
+                cy={27}
+                rx={25}
+                ry={27}
+              ></ellipse>
+            </svg>
+            <LoremIpsum10>10</LoremIpsum10>
+          </Ellipse5Stack>
+          <Ellipse6Stack>
+            <svg
+              viewBox="0 0 50.31 53.2"
+              style={{
+                top: 0,
+                left: 0,
+                width: 50,
+                height: 53,
+                position: "absolute"
+              }}
+            >
+              <ellipse
+                stroke="rgba(230, 230, 230,1)"
+                strokeWidth={0}
+                fill="rgba(212,149,149,1)"
+                cx={25}
+                cy={27}
+                rx={25}
+                ry={27}
+              ></ellipse>
+            </svg>
+            <LoremIpsum9>9</LoremIpsum9>
+          </Ellipse6Stack>
+          <Ellipse7Stack>
+            <svg
+              viewBox="0 0 50.31 53.2"
+              style={{
+                top: 0,
+                left: 0,
+                width: 50,
+                height: 53,
+                position: "absolute"
+              }}
+            >
+              <ellipse
+                stroke="rgba(230, 230, 230,1)"
+                strokeWidth={0}
+                fill="rgba(212,149,149,1)"
+                cx={25}
+                cy={27}
+                rx={25}
+                ry={27}
+              ></ellipse>
+            </svg>
+            <LoremIpsum8>8</LoremIpsum8>
+          </Ellipse7Stack>
+          <Ellipse8Stack>
+            <svg
+              viewBox="0 0 50.31 53.2"
+              style={{
+                top: 0,
+                left: 0,
+                width: 50,
+                height: 53,
+                position: "absolute"
+              }}
+            >
+              <ellipse
+                stroke="rgba(230, 230, 230,1)"
+                strokeWidth={0}
+                fill="rgba(212,149,149,1)"
+                cx={25}
+                cy={27}
+                rx={25}
+                ry={27}
+              ></ellipse>
+            </svg>
+            <LoremIpsum7>7</LoremIpsum7>
+          </Ellipse8Stack>
+          <LoremIpsum1Stack>
+            <LoremIpsum1>1</LoremIpsum1>
+            <svg
+              viewBox="0 0 50.31 53.2"
+              style={{
+                top: 0,
+                left: 0,
+                width: 50,
+                height: 53,
+                position: "absolute"
+              }}
+            >
+              <ellipse
+                stroke="rgba(230, 230, 230,1)"
+                strokeWidth={0}
+                fill="rgba(212,149,149,1)"
+                cx={25}
+                cy={27}
+                rx={25}
+                ry={27}
+              ></ellipse>
+            </svg>
+            <LoremIpsum6>6</LoremIpsum6>
+          </LoremIpsum1Stack>
+
           <Button10>
             <ButtonOverlay>
-              <Configuracion2>Silenciar</Configuracion2>
+              <Volumen>Volumen</Volumen>
             </ButtonOverlay>
           </Button10>
+
+          <LoremIpsum11Stack>
+          <LoremIpsum11>10</LoremIpsum11>
+          <svg
+            viewBox="0 0 50.31 53.2"
+            style={{
+              top: 0,
+              left: 0,
+              width: 50,
+              height: 53,
+              position: "absolute"
+            }}
+          >
+            <ellipse
+              stroke="rgba(230, 230, 230,1)"
+              strokeWidth={0}
+              fill="rgba(212,149,149,1)"
+              cx={25}
+              cy={27}
+              rx={25}
+              ry={27}
+            ></ellipse>
+          </svg>
+          <LoremIpsum22>10</LoremIpsum22>
+        </LoremIpsum11Stack>
+        <LoremIpsum12Stack>
+          <LoremIpsum12>9</LoremIpsum12>
+          <svg
+            viewBox="0 0 50.31 53.2"
+            style={{
+              top: 0,
+              left: 0,
+              width: 50,
+              height: 53,
+              position: "absolute"
+            }}
+          >
+            <ellipse
+              stroke="rgba(230, 230, 230,1)"
+              strokeWidth={0}
+              fill="rgba(212,149,149,1)"
+              cx={25}
+              cy={27}
+              rx={25}
+              ry={27}
+            ></ellipse>
+          </svg>
+          <LoremIpsum23>9</LoremIpsum23>
+        </LoremIpsum12Stack>
+        <LoremIpsum13Stack>
+          <LoremIpsum13>8</LoremIpsum13>
+          <svg
+            viewBox="0 0 50.31 53.2"
+            style={{
+              top: 0,
+              left: 0,
+              width: 50,
+              height: 53,
+              position: "absolute"
+            }}
+          >
+            <ellipse
+              stroke="rgba(230, 230, 230,1)"
+              strokeWidth={0}
+              fill="rgba(212,149,149,1)"
+              cx={25}
+              cy={27}
+              rx={25}
+              ry={27}
+            ></ellipse>
+          </svg>
+          <LoremIpsum24>8</LoremIpsum24>
+        </LoremIpsum13Stack>
+        <LoremIpsum14Stack>
+          <LoremIpsum14>7</LoremIpsum14>
+          <svg
+            viewBox="0 0 50.31 53.2"
+            style={{
+              top: 0,
+              left: 0,
+              width: 50,
+              height: 53,
+              position: "absolute"
+            }}
+          >
+            <ellipse
+              stroke="rgba(230, 230, 230,1)"
+              strokeWidth={0}
+              fill="rgba(212,149,149,1)"
+              cx={25}
+              cy={27}
+              rx={25}
+              ry={27}
+            ></ellipse>
+          </svg>
+          <LoremIpsum25>7</LoremIpsum25>
+        </LoremIpsum14Stack>
+        <LoremIpsum15Stack>
+          <LoremIpsum15>6</LoremIpsum15>
+          <svg
+            viewBox="0 0 50.31 53.2"
+            style={{
+              top: 0,
+              left: 0,
+              width: 50,
+              height: 53,
+              position: "absolute"
+            }}
+          >
+            <ellipse
+              stroke="rgba(230, 230, 230,1)"
+              strokeWidth={0}
+              fill="rgba(212,149,149,1)"
+              cx={25}
+              cy={27}
+              rx={25}
+              ry={27}
+            ></ellipse>
+          </svg>
+          <LoremIpsum26>6</LoremIpsum26>
+        </LoremIpsum15Stack>
+        <LoremIpsum16Stack>
+          <LoremIpsum16>5</LoremIpsum16>
+          <svg
+            viewBox="0 0 50.31 53.2"
+            style={{
+              top: 0,
+              left: 0,
+              width: 50,
+              height: 53,
+              position: "absolute"
+            }}
+          >
+            <ellipse
+              stroke="rgba(230, 230, 230,1)"
+              strokeWidth={0}
+              fill="rgba(212,149,149,1)"
+              cx={25}
+              cy={27}
+              rx={25}
+              ry={27}
+            ></ellipse>
+          </svg>
+          <LoremIpsum27>5</LoremIpsum27>
+        </LoremIpsum16Stack>
+        <LoremIpsum17Stack>
+          <LoremIpsum17>4</LoremIpsum17>
+          <svg
+            viewBox="0 0 50.31 53.2"
+            style={{
+              top: 0,
+              left: 0,
+              width: 50,
+              height: 53,
+              position: "absolute"
+            }}
+          >
+            <ellipse
+              stroke="rgba(230, 230, 230,1)"
+              strokeWidth={0}
+              fill="rgba(212,149,149,1)"
+              cx={25}
+              cy={27}
+              rx={25}
+              ry={27}
+            ></ellipse>
+          </svg>
+          <LoremIpsum28>4</LoremIpsum28>
+        </LoremIpsum17Stack>
+        <LoremIpsum18Stack>
+          <LoremIpsum18>3</LoremIpsum18>
+          <svg
+            viewBox="0 0 50.31 53.2"
+            style={{
+              top: 0,
+              left: 0,
+              width: 50,
+              height: 53,
+              position: "absolute"
+            }}
+          >
+            <ellipse
+              stroke="rgba(230, 230, 230,1)"
+              strokeWidth={0}
+              fill="rgba(212,149,149,1)"
+              cx={25}
+              cy={27}
+              rx={25}
+              ry={27}
+            ></ellipse>
+          </svg>
+          <LoremIpsum29>3</LoremIpsum29>
+        </LoremIpsum18Stack>
+        <LoremIpsum19Stack>
+          <LoremIpsum19>2</LoremIpsum19>
+          <svg
+            viewBox="0 0 50.31 53.2"
+            style={{
+              top: 0,
+              left: 0,
+              width: 50,
+              height: 53,
+              position: "absolute"
+            }}
+          >
+            <ellipse
+              stroke="rgba(230, 230, 230,1)"
+              strokeWidth={0}
+              fill="rgba(212,149,149,1)"
+              cx={25}
+              cy={27}
+              rx={25}
+              ry={27}
+            ></ellipse>
+          </svg>
+          <LoremIpsum30>2</LoremIpsum30>
+        </LoremIpsum19Stack>
+        <LoremIpsum21Stack>
+          <LoremIpsum21>1</LoremIpsum21>
+          <svg
+            viewBox="0 0 50.31 53.2"
+            style={{
+              top: 0,
+              left: 0,
+              width: 50,
+              height: 53,
+              position: "absolute"
+            }}
+          >
+            <ellipse
+              stroke="rgba(230, 230, 230,1)"
+              strokeWidth={0}
+              fill="rgba(212,149,149,1)"
+              cx={25}
+              cy={27}
+              rx={25}
+              ry={27}
+            ></ellipse>
+          </svg>
+          <LoremIpsum32>1</LoremIpsum32>
+        </LoremIpsum21Stack>
+          
+        </RectStackStackStack>
+
+          
+
+
         <Link to="/CursosDisponibles">
           <Button3>
             <ButtonOverlay>
@@ -169,6 +668,660 @@ const Configuracion = () => {
     </Container>
   );
 }
+const LoremIpsum11 = styled.span`
+  font-family: Roboto;
+  top: 13px;
+  left: 10px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 27px;
+  width: 30px;
+  font-size: 25px;
+`;
+
+const LoremIpsum22 = styled.span`
+  font-family: Roboto;
+  top: 7px;
+  left: 10px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 27px;
+  width: 30px;
+  font-size: 25px;
+`;
+
+const LoremIpsum11Stack = styled.div`
+  top: 682px;
+  left: 1456px;
+  width: 50px;
+  height: 53px;
+  position: absolute;
+`;
+
+const LoremIpsum12 = styled.span`
+  font-family: Roboto;
+  top: 13px;
+  left: 17px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 27px;
+  width: 18px;
+  font-size: 25px;
+`;
+
+const LoremIpsum23 = styled.span`
+  font-family: Roboto;
+  top: 7px;
+  left: 17px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 27px;
+  width: 18px;
+  font-size: 25px;
+`;
+
+const LoremIpsum12Stack = styled.div`
+  top: 682px;
+  left: 1396px;
+  width: 50px;
+  height: 53px;
+  position: absolute;
+`;
+
+const LoremIpsum13 = styled.span`
+  font-family: Roboto;
+  top: 13px;
+  left: 16px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 27px;
+  width: 18px;
+  font-size: 25px;
+`;
+
+const LoremIpsum24 = styled.span`
+  font-family: Roboto;
+  top: 7px;
+  left: 16px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 27px;
+  width: 18px;
+  font-size: 25px;
+`;
+
+const LoremIpsum13Stack = styled.div`
+  top: 682px;
+  left: 1328px;
+  width: 50px;
+  height: 53px;
+  position: absolute;
+`;
+
+const LoremIpsum14 = styled.span`
+  font-family: Roboto;
+  top: 13px;
+  left: 16px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 27px;
+  width: 18px;
+  font-size: 25px;
+`;
+
+const LoremIpsum25 = styled.span`
+  font-family: Roboto;
+  top: 7px;
+  left: 16px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 27px;
+  width: 18px;
+  font-size: 25px;
+`;
+
+const LoremIpsum14Stack = styled.div`
+  top: 682px;
+  left: 1263px;
+  width: 50px;
+  height: 53px;
+  position: absolute;
+`;
+
+const LoremIpsum15 = styled.span`
+  font-family: Roboto;
+  top: 13px;
+  left: 16px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 27px;
+  width: 18px;
+  font-size: 25px;
+`;
+
+const LoremIpsum26 = styled.span`
+  font-family: Roboto;
+  top: 7px;
+  left: 16px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 27px;
+  width: 18px;
+  font-size: 25px;
+`;
+
+const LoremIpsum15Stack = styled.div`
+  top: 682px;
+  left: 1201px;
+  width: 50px;
+  height: 53px;
+  position: absolute;
+`;
+
+const LoremIpsum16 = styled.span`
+  font-family: Roboto;
+  top: 13px;
+  left: 17px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 27px;
+  width: 18px;
+  font-size: 25px;
+`;
+
+const LoremIpsum27 = styled.span`
+  font-family: Roboto;
+  top: 7px;
+  left: 17px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 27px;
+  width: 18px;
+  font-size: 25px;
+`;
+
+const LoremIpsum16Stack = styled.div`
+  top: 682px;
+  left: 1139px;
+  width: 50px;
+  height: 53px;
+  position: absolute;
+`;
+
+const LoremIpsum17 = styled.span`
+  font-family: Roboto;
+  top: 10px;
+  left: 16px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 27px;
+  width: 18px;
+  font-size: 25px;
+`;
+
+const LoremIpsum28 = styled.span`
+  font-family: Roboto;
+  top: 4px;
+  left: 16px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 27px;
+  width: 18px;
+  font-size: 25px;
+`;
+
+const LoremIpsum17Stack = styled.div`
+  top: 682px;
+  left: 1080px;
+  width: 50px;
+  height: 53px;
+  position: absolute;
+`;
+
+const LoremIpsum18 = styled.span`
+  font-family: Roboto;
+  top: 10px;
+  left: 16px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 27px;
+  width: 18px;
+  font-size: 25px;
+`;
+
+const LoremIpsum29 = styled.span`
+  font-family: Roboto;
+  top: 4px;
+  left: 16px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 27px;
+  width: 18px;
+  font-size: 25px;
+`;
+
+const LoremIpsum18Stack = styled.div`
+  top: 682px;
+  left: 1011px;
+  width: 50px;
+  height: 53px;
+  position: absolute;
+`;
+
+const LoremIpsum19 = styled.span`
+  font-family: Roboto;
+  top: 10px;
+  left: 17px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 27px;
+  width: 18px;
+  font-size: 25px;
+`;
+
+const LoremIpsum30 = styled.span`
+  font-family: Roboto;
+  top: 4px;
+  left: 17px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 27px;
+  width: 18px;
+  font-size: 25px;
+`;
+
+const LoremIpsum19Stack = styled.div`
+  top: 682px;
+  left: 946px;
+  width: 50px;
+  height: 53px;
+  position: absolute;
+`;
+
+const LoremIpsum21 = styled.span`
+  font-family: Roboto;
+  top: 13px;
+  left: 16px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 27px;
+  width: 18px;
+  font-size: 25px;
+`;
+
+const LoremIpsum32 = styled.span`
+  font-family: Roboto;
+  top: 7px;
+  left: 16px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 27px;
+  width: 18px;
+  font-size: 25px;
+`;
+
+const LoremIpsum21Stack = styled.div`
+  top: 682px;
+  left: 885px;
+  width: 50px;
+  height: 53px;
+  position: absolute;
+`;
+
+const EllipseStack = styled.div`
+  top: 535px;
+  left: 860px;
+  width: 50px;
+  height: 53px;
+  position: absolute;
+`;
+
+const LoremIpsum2 = styled.span`
+  font-family: Roboto;
+  top: 10px;
+  left: 17px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 27px;
+  width: 18px;
+  font-size: 25px;
+`;
+
+const Ellipse1Stack = styled.div`
+  top: 535px;
+  left: 930px;
+  width: 50px;
+  height: 53px;
+  position: absolute;
+`;
+
+const LoremIpsum3 = styled.span`
+  font-family: Roboto;
+  top: 10px;
+  left: 16px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 27px;
+  width: 18px;
+  font-size: 25px;
+`;
+
+const Ellipse2Stack = styled.div`
+  top: 535px;
+  left: 1000px;
+  width: 50px;
+  height: 53px;
+  position: absolute;
+`;
+
+const LoremIpsum4 = styled.span`
+  font-family: Roboto;
+  top: 10px;
+  left: 16px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 27px;
+  width: 18px;
+  font-size: 25px;
+`;
+
+const Ellipse3Stack = styled.div`
+  top: 535px;
+  left: 1070px;
+  width: 50px;
+  height: 53px;
+  position: absolute;
+`;
+
+const LoremIpsum5 = styled.span`
+  font-family: Roboto;
+  top: 13px;
+  left: 17px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 27px;
+  width: 18px;
+  font-size: 25px;
+`;
+
+const Ellipse4Stack = styled.div`
+  top: 535px;
+  left: 1140px;
+  width: 50px;
+  height: 53px;
+  position: absolute;
+`;
+
+const LoremIpsum10 = styled.span`
+  font-family: Roboto;
+  top: 13px;
+  left: 10px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 27px;
+  width: 30px;
+  font-size: 25px;
+`;
+
+const Ellipse5Stack = styled.div`
+  top: 535px;
+  left: 1456px;
+  width: 50px;
+  height: 53px;
+  position: absolute;
+`;
+
+const LoremIpsum9 = styled.span`
+  font-family: Roboto;
+  top: 13px;
+  left: 17px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 27px;
+  width: 18px;
+  font-size: 25px;
+`;
+
+const Ellipse6Stack = styled.div`
+  top: 535px;
+  left: 1396px;
+  width: 50px;
+  height: 53px;
+  position: absolute;
+`;
+
+const LoremIpsum8 = styled.span`
+  font-family: Roboto;
+  top: 13px;
+  left: 16px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 27px;
+  width: 18px;
+  font-size: 25px;
+`;
+
+const Ellipse7Stack = styled.div`
+  top: 535px;
+  left: 1328px;
+  width: 50px;
+  height: 53px;
+  position: absolute;
+`;
+
+const LoremIpsum7 = styled.span`
+  font-family: Roboto;
+  top: 13px;
+  left: 16px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 27px;
+  width: 18px;
+  font-size: 25px;
+`;
+
+const Ellipse8Stack = styled.div`
+  top: 535px;
+  left: 1263px;
+  width: 50px;
+  height: 53px;
+  position: absolute;
+`;
+
+const LoremIpsum1 = styled.span`
+  font-family: Roboto;
+  top: 13px;
+  left: 16px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 27px;
+  width: 18px;
+  font-size: 25px;
+`;
+
+const LoremIpsum6 = styled.span`
+  font-family: Roboto;
+  top: 13px;
+  left: 16px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 27px;
+  width: 18px;
+  font-size: 25px;
+`;
+
+const LoremIpsum = styled.span`
+  font-family: Roboto;
+  top: 13px;
+  left: 16px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 27px;
+  width: 18px;
+  font-size: 25px;
+`;
+const LoremIpsum1Stack = styled.div`
+  top: 535px;
+  left: 1201px;
+  width: 50px;
+  height: 53px;
+  position: absolute;
+`;
+const Hombre = styled.span`
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 700;
+  color: rgba(49,47,47,1);
+  height: 39px;
+  width: 123px;
+  font-size: 35px;
+  margin-top: 18px;
+  margin-left: 70px;
+`;
+const Button21 = styled.div`
+  top: 397px;
+  left: 880px;
+  width: 232px;
+  height: 74px;
+  position: absolute;
+  background-color: #E6E6E6;
+  flex-direction: column;
+  display: flex;
+  border: none;
+`;
+
+const Mujer = styled.span`
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 700;
+  color: rgba(49,47,47,1);
+  height: 39px;
+  width: 123px;
+  font-size: 35px;
+  margin-top: 18px;
+  margin-left: 70px;
+`;
+
+const Button12 = styled.div`
+  top: 397px;
+  left: 1200px;
+  width: 232px;
+  height: 74px;
+  position: absolute;
+  background-color: #E6E6E6;
+  flex-direction: column;
+  display: flex;
+  border: none;
+`;
+const Button14 = styled.div`
+  top: 250px;
+  left: 880px;
+  width: 232px;
+  height: 74px;
+  position: absolute;
+  background-color: #E6E6E6;
+  flex-direction: column;
+  display: flex;
+  border: none;
+`;
+
+const Ingles = styled.span`
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 700;
+  color: rgba(49,47,47,1);
+  height: 39px;
+  width: 123px;
+  font-size: 35px;
+  margin-top: 18px;
+  margin-left: 73px;
+`;
+
+const Button13 = styled.div`
+  top: 250px;
+  left: 1200px;
+  width: 232px;
+  height: 74px;
+  position: absolute;
+  background-color: #E6E6E6;
+  flex-direction: column;
+  display: flex;
+  border: none;
+`;
+
+const Espanol = styled.span`
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 700;
+  color: rgba(49,47,47,1);
+  height: 39px;
+  width: 129px;
+  font-size: 35px;
+  margin-top: 18px;
+  margin-left: 51px;
+`;
 const Container = styled.div`
   display: flex;
   background-color: #ecf0f5;
@@ -383,35 +1536,38 @@ const JuanCamarena1 = styled.span`
 `;
 
 const Button7 = styled.div`
-  top: 225px;
-  left: 434px;
-  width: 426px;
-  height: 204px;
-  position: absolute;
-  background-color: #ff851b;
-  flex-direction: column;
-  display: flex;
-  border: none;
+top: 241px;
+left: 409px;
+width: 418px;
+height: 108px;
+position: absolute;
+background-color: #ff851b;
+flex-direction: column;
+display: flex;
+border: none;
 `;
 
 const Matricula12 = styled.span`
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 400;
-  color: rgba(249,246,246,1);
-  height: 81px;
-  width: 228px;
-  font-size: 50px;
-  text-align: center;
-  margin-top: 68px;
-  margin-left: 99px;
+font-family: Roboto;
+font-style: normal;
+font-weight: 400;
+color: rgba(249,246,246,1);
+height: 86px;
+width: 237px;
+font-size: 50px;
+text-align: center;
+margin-top: 12px;
+margin-left: 57px;
 `;
 
+
+
+
 const Button8 = styled.div`
-  top: 225px;
-  left: 982px;
-  width: 426px;
-  height: 204px;
+top: 378px;
+left: 409px;
+width: 436px;
+height: 101px;
   position: absolute;
   background-color: #00a65a;
   flex-direction: column;
@@ -454,10 +1610,10 @@ const RectStackStackStack = styled.div`
 `;
 
 const Button9 = styled.div`
-  top: 537px;
-  left: 434px;
-  width: 426px;
-  height: 204px;
+top: 507px;
+left: 409px;
+width: 418px;
+height: 108px;
   position: absolute;
   background-color: #f39c12;
   flex-direction: column;
@@ -479,10 +1635,10 @@ const Reglamento2 = styled.span`
 `;
 
 const Button10 = styled.div`
-  top: 537px;
-  left: 982px;
-  width: 426px;
-  height: 204px;
+top: 655px;
+left: 409px;
+width: 418px;
+height: 107px;
   position: absolute;
   background-color: #dd4b39;
   flex-direction: column;
@@ -490,7 +1646,7 @@ const Button10 = styled.div`
   border: none;
 `;
 
-const Configuracion2 = styled.span`
+const Volumen = styled.span`
   font-family: Roboto;
   font-style: normal;
   font-weight: 400;

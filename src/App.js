@@ -7,6 +7,8 @@ import CursoDisponibles from "./screens/CursosDisponibles";
 import Configuracion from "./screens/Configuracion";
 import Horarios from "./screens/Horarios"
 import Test from "./screens/prueba";
+import Congratulation from "./screens/Congratulation";
+
 import "./style.css";
 
 function App() {
@@ -20,6 +22,7 @@ function App() {
       <Route path="/CursosDisponibles/" exact component={CursoDisponibles} />
       <Route path="/Configuracion/" exact component={Configuracion} />
       <Route path="/test/" exact component={Test} />
+      <Route path="/Congratulation/" exact component={Congratulation} />
     </Router>
 
     </div>

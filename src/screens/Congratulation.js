@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 import CursosDisponiblesVoice from "../voice_interface/CursosDisponiblesVoice";
 
-const Horarios = () => {
+const Congratulation = () => {
     const [student,setStudent] = useState([])
 
     useEffect(()=>{
@@ -33,48 +33,14 @@ const Horarios = () => {
     },[student]);
   
     const [courses,setCourses] = useState([])
-  
-    useEffect(()=>{
-      let b = student ? student.code : '';
-      const loadCourses = async () => {
-        const respuesta = await fetch('/api/students/'+b+'/courses');
-        const datos = await respuesta.json();
-        setCourses(datos);
-      };
-      if (b) {
-        // llamar a la función solo si b tiene un valor válido
-        loadCourses();
-      }
-      
-    }, [student,foto]);
-  const [schedule,setSchedule] = useState([])
-
-  useEffect(()=>{
-      let b = student ? student.code : '';
-      const loadSchedule = async () => {
-        const respuesta = await fetch('/api/students/'+b+'/schedule');
-        const datos = await respuesta.json();
-        setSchedule(datos);
-      };
-      if (b) {
-        // llamar a la función solo si b tiene un valor válido
-        loadSchedule();
-      }
-      
-    }, [student]);
-      
-    const [wordData,setWordData] = useState([]);
-
-      const handleClick=(index)=>{
-        console.log(index)
-        const wordSlider=schedule[index];
-        setWordData(wordSlider)
-      }
-      function handleClick1() {
+    function handleClick1() {
         const link = `https://drive.google.com/file/d/1WMeM8_MXGmv5iaH9MIgjuMqRQTfALbGP/view`;
         
         window.open(link, '_blank');
       }
+
+
+
   return (
     <Container>
       <RectStackStackStackStack>
@@ -110,53 +76,10 @@ const Horarios = () => {
               </Link>
             </Rect4Stack>
           </RectStackStack>
-          <PanelDeNavegacion>Confirmar Matricula</PanelDeNavegacion>
-          <HorarioTitulo>Horarios</HorarioTitulo>
-              <CursoTitulo >Curso</CursoTitulo>
-             <SeccionTitulo >Seccion</SeccionTitulo>
-             <DiaTitulo >Dia</DiaTitulo>
-             <HoraTitulo >Hora</HoraTitulo>
-             <DocenteTitulo>Docente</DocenteTitulo>  
-             <>
-            {wordData.map((it,inde)=>
-              
-              <>
-              <div key={inde}>
-              <Curso style={{
-                top: 400 + (inde * 70)  // Ajusta la posición al mismo valor que el elipse
-              }}>{it.code}</Curso>
-                <Seccion style={{
-                top: 400 + (inde * 70)  // Ajusta la posición al mismo valor que el elipse
-              }}>{it.section}</Seccion>
-            <Dia style={{
-                top: 400 + (inde * 70)  // Ajusta la posición al mismo valor que el elipse
-              }}>{it.days.join(', ')}</Dia>
-            <Hora style={{
-                top: 400 + (inde * 70)  // Ajusta la posición al mismo valor que el elipse
-              }}>{it.start.join("-")}{"-"}{it.finish.join("-")}</Hora>
-            <Docente style={{
-                top: 400 + (inde * 70)  // Ajusta la posición al mismo valor que el elipse
-              }}>{it.teacher}</Docente>
-            </div>
-              </>
-    
-            )}
-
-            </>
-              
-              {schedule.map((data,i)=>
-              <>
-              
-              <Matricula12 style={{
-                left: 400 + (i * 40)  // Ajusta la posición al mismo valor que el elipse
-              }} key={i} onClick={()=>handleClick(i)}>{i+1}</Matricula12>
-              </>
-                
-                
-              )}
-
           
 
+            <PanelDeNavegacion>¡Felicidades !</PanelDeNavegacion>
+            <HorarioTitulo>Has completado con éxito el proceso de matrícula.</HorarioTitulo>
 
         </RectStackStackStack>
         <Link to="/CursosDisponibles">
@@ -189,12 +112,6 @@ const Horarios = () => {
               </ButtonOverlay>
             </Button6>
           </Link>
-            <Link to="/Congratulation">
-          <Rect19 ><Matricular >
-          Confirmar
-            </Matricular>
-            </Rect19>
-            </Link>
         </Button5Stack>
         
       </RectStackStackStackStack>
@@ -204,7 +121,15 @@ const Horarios = () => {
     </Container>
   );
 }
+const Titulo = styled.h1`
+  font-size: 36px;
+  color: #4caf50;
+`;
 
+const Message = styled.p`
+  font-size: 18px;
+  color: #333;
+`;
 const HoraTitulo = styled.span`
   font-family: Roboto;
   top: 326px;
@@ -444,18 +369,7 @@ width: 133px;
 font-size: 25px;
 `;
 
-const HorarioTitulo = styled.span`
-  font-family: Roboto;
-  top: 235px;
-  left: 869px;
-  position: absolute;
-  font-style: normal;
-  font-weight: 400;
-  color: #121212;
-  height: 29px;
-  width: 120px;
-  font-size: 25px;
-`;
+
 
 const Creditos = styled.span`
   font-family: Roboto;
@@ -894,7 +808,18 @@ const PanelDeNavegacion = styled.span`
   width: 688px;
   font-size: 60px;
 `;
-
+const HorarioTitulo = styled.span`
+  font-family: Roboto;
+  top: 235px;
+  left: 869px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 100px;
+  width: 300px;
+  font-size: 25px;
+`;
 const RectStackStackStack = styled.div`
   top: 0px;
   left: 0px;
@@ -1106,4 +1031,4 @@ const Version101 = styled.span`
   margin-left: 1694px;
 `;
 
-export default Horarios;
+export default Congratulation;
